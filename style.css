@@ -1,0 +1,77 @@
+*{
+    font-family: "Inter", sans-serif;
+}
+body {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings: "slnt" 0;
+    background-color: #2c3e50;
+    min-height: 100vh;
+    
+    
+}
+#svgContainer {
+    margin-top: 20px;
+}
+footer {
+    margin-top: auto;
+    text-align: center;
+    font-size: 14px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    width: 100%;
+    
+   
+
+
+}
+.foot{
+    position:sticky;
+    top:100%;
+    background-color:#c0392b;
+    color: white;
+}
+footer a {
+    color:blue;
+    text-decoration: none;
+}
+p:hover{
+    transform: scale(1.5);
+}
+h1{
+    color:white;
+}
+
+
+#svg-file-input{
+    color:transparent;
+}
+.custom::-webkit-file-upload-button{
+    display: inline-block;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #c0392b;
+    text-align: center;
+    padding:15px 40px;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    box-shadow:5px 15px 25px rgba(0,0,0,0.45);
+    border-radius:10px;
+    
+    
+}
+
+.custom:hover{
+    transform: scale(0.9);
+    
+}
+i:hover{
+    transform: scale(1.2);
+
+}
+p:hover{
+    transform: scale(1.5);
+}

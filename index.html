@@ -4,30 +4,8 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>SVG Resizer and Converter</title>
-		<style>
-			body {
-				font-family: "Inter", sans-serif;
-				font-optical-sizing: auto;
-				font-weight: 600;
-				font-style: normal;
-				font-variation-settings: "slnt" 0;
-			}
-			#svgContainer {
-				margin-top: 20px;
-			}
-			footer {
-				margin-top: auto;
-				text-align: center;
-				font-size: 14px;
-				padding: 10px;
-				background-color: #f1f1f1;
-				width: 100%;
-			}
-			footer a {
-				color: #265fb5;
-				text-decoration: none;
-			}
-		</style>
+		<link rel="stylesheet" href="style.css">
+		
 
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,8 +13,8 @@
 	</head>
 
 	<body>
-		<h1>Upload, Resize, and Convert SVG to PNG</h1>
-		<input id="svg-file-input" type="file" accept=".svg" />
+		<h1>Upload <i class="fa-solid fa-cloud-arrow-up"></i>, Resize <i class="fa-solid fa-compress"></i> and Convert SVG <i class="fa-solid fa-arrow-right"></i> PNG</h1>
+		<input id="svg-file-input" class="custom" type="file" accept=".svg" />
 		<div id="currentDimensions" style="display: none"> </div>
 		<form id="resizeForm" style="display: none">
 			<div id="form-data" style="display: flex">
@@ -56,10 +34,10 @@
 			<!-- SVG will be displayed here -->
 		</div>
 
-		<footer
-			><b>made with ❤️ by <a href="https://github.com/tanaykmr" target="_blank">Tanay Kumar</a></b></footer
+		<footer class="foot"
+			><b>made with <p>❤️</p> <a href="#">Anveshan</a></b></footer
 		>
-
+		<script src="https://kit.fontawesome.com/f0b702059e.js" crossorigin="anonymous"></script>
 		<script src="app.js"></script>
 	</body>
 </html>
