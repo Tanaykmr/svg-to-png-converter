@@ -11,10 +11,42 @@
 				font-weight: 600;
 				font-style: normal;
 				font-variation-settings: "slnt" 0;
+				background: no-repeat;
+				background-image: linear-gradient(45deg, rgb(201, 179, 236),rgb(255, 255, 255));
+				background-size: cover;
+				max-height: 500vh;
 			}
+
+			h1{
+				text-align: center;
+				text-decoration: underline;
+				font-weight: bold;
+			}
+
+			.upload-svg{
+				background-color: white;
+				border-radius: 10px;
+				color: rgb(138, 30, 148);
+				padding: 10px 10px 10px 10px;
+				transition: all 0.5s ease;
+			}
+
+			.upload-svg:hover{
+				background-color: rgb(138, 30, 148);
+				color: white;
+			}
+
+			.input-svg{
+				display: grid;
+				place-items: center;
+			}
+
 			#svgContainer {
 				margin-top: 20px;
+				display: grid;
+				place-items: center;
 			}
+
 			footer {
 				margin-top: auto;
 				text-align: center;
@@ -27,6 +59,37 @@
 				color: #265fb5;
 				text-decoration: none;
 			}
+
+			#form-data{
+				align-items: center;
+				justify-content: center;
+			}
+
+			#form-data input{
+				height: 30px;
+				border-radius: 10px;
+				border: 0;
+				padding: 1px 1px 1px 1px;
+			}
+
+			#currentDimensions{
+				text-align: center;
+				margin-top: 7px;
+				margin-bottom: 7px;
+			}
+
+			#form-data button{
+				background-color: white;
+				border-radius: 10px;
+				color: rgb(138, 30, 148);
+				padding: 10px 10px 10px 10px;
+				transition: all 0.5s ease;
+			}
+
+			#form-data button:hover{
+				background-color: rgb(138, 30, 148);
+				color: white;
+			}
 		</style>
 
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -36,7 +99,10 @@
 
 	<body>
 		<h1>Upload, Resize, and Convert SVG to PNG</h1>
-		<input id="svg-file-input" type="file" accept=".svg" />
+		<div class="input-svg">
+			<label for="svg-file-input" class="upload-svg">Upload Svg</label>
+			<input id="svg-file-input" type="file" accept=".svg" style="display: none;"/>
+		</div>
 		<div id="currentDimensions" style="display: none"> </div>
 		<form id="resizeForm" style="display: none">
 			<div id="form-data" style="display: flex">
