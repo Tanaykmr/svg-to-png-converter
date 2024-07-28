@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>SVG Resizer and Converter</title>
+		<style>
+			#svgContainer {
+				margin-top: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>Upload, Resize, and Convert SVG to PNG</h1>
+		<input id="svg-file-input" type="file" accept=".svg" />
+		<form id="resizeForm" style="display: none">
+			<div id="form-data" style="display: flex">
+				<div id="forminputs">
+					<label for="width">Width:</label>
+					<input type="number" id="width" name="width" required />
+					<label for="height">Height:</label>
+					<input type="number" id="height" name="height" required />
+					<button type="submit">Resize</button>
+				</div>
+				<div id="convertButton">
+					<button id="convertToPngBtn" style="display: none">Convert to PNG</button>
+				</div></div
+			>
+		</form>
+		<div" id="dimensions">Current dimensions: </div>
+		<div id="svgContainer">
+			<!-- SVG will be displayed here -->
+		</div>
+
+		<script src="app.js"></script>
+	</body>
+</html>
