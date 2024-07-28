@@ -5,10 +5,33 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>SVG Resizer and Converter</title>
 		<style>
+			body {
+				font-family: "Inter", sans-serif;
+				font-optical-sizing: auto;
+				font-weight: 600;
+				font-style: normal;
+				font-variation-settings: "slnt" 0;
+			}
 			#svgContainer {
 				margin-top: 20px;
 			}
+			footer {
+				margin-top: auto;
+				text-align: center;
+				font-size: 14px;
+				padding: 10px;
+				background-color: #f1f1f1;
+				width: 100%;
+			}
+			footer a {
+				color: #265fb5;
+				text-decoration: none;
+			}
 		</style>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
 	</head>
 
 	<body>
@@ -26,12 +49,16 @@
 				</div>
 				<div id="convertButton">
 					<button id="convertToPngBtn" style="display: none">Convert to PNG</button>
-				</div></div
-			>
+				</div>
+			</div>
 		</form>
 		<div id="svgContainer">
 			<!-- SVG will be displayed here -->
 		</div>
+
+		<footer
+			><b>made by <a href="https://github.com/tanaykmr" target="_blank">Tanay Kumar</a></b></footer
+		>
 
 		<script src="app.js"></script>
 	</body>
