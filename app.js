@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
 	const convertToPngBtn = document.getElementById("convertToPngBtn");
 	const svgContainer = document.getElementById("svgContainer");
 	const dimensionsDiv = document.getElementById("currentDimensions");
+	const uploadBox = document.getElementById("uploadBox");
+    const placeholderImage = document.getElementById("placeholderImage");
 
 	let svgElement = null;
 	let svgWidth = 0;
@@ -31,6 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
 				updateDimensionsDiv(svgWidth, svgHeight);
 				dimensionsDiv.style.display = "block";
 				form.style.display = "block";
+				placeholderImage.style.display = "none";
+				uploadBox.style.display = "none";
 			};
 			reader.readAsText(file);
 		} else {
@@ -53,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	convertToPngBtn.addEventListener("click", () => {
 		if (svgElement) {
 			convertSVGToPNG(svgElement);
+			alert("Thank you for using this site!")
 		}
 	});
 
@@ -61,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		svgElement.setAttribute("height", height);
 		svgWidth = width;
 		svgHeight = height;
+		updateDimensionsDiv(svgWidth, svgHeight)
 	}
 
 	function convertSVGToPNG(svgElement) {
@@ -87,7 +93,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	function updateDimensionsDiv(width, height) {
-		dimensionsDiv.textContent = `Current SVG dimensions: ${width} x ${height}`;
+        const widthWithUnit = width.endsWith("px") ? width : `${width}px`;
+        const heightWithUnit = height.endsWith("px") ? height : `${height}px`;
+        dimensionsDiv.textContent = `Current dimensions: ${widthWithUnit} X ${heightWithUnit}`;
 	}
 
 	function downloadPNG(dataUrl) {
