@@ -14,6 +14,7 @@
 	<body>
 		<h1>Upload, Resize, and Convert SVG to PNG</h1>
 		<input id="svg-file-input" type="file" accept=".svg" />
+		<div id="currentDimensions" style="display: none"> </div>
 		<form id="resizeForm" style="display: none">
 			<div id="form-data" style="display: flex">
 				<div id="forminputs">
@@ -28,7 +29,6 @@
 				</div></div
 			>
 		</form>
-		<div" id="dimensions">Current dimensions: </div>
 		<div id="svgContainer">
 			<!-- SVG will be displayed here -->
 		</div>

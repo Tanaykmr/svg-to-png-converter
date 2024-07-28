@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const form = document.getElementById("resizeForm");
 	const convertToPngBtn = document.getElementById("convertToPngBtn");
 	const svgContainer = document.getElementById("svgContainer");
+	const dimensionsDiv = document.getElementById("currentDimensions");
 
 	let svgElement = null;
 	let svgWidth = 0;
@@ -16,9 +17,19 @@ document.addEventListener("DOMContentLoaded", () => {
 				const svgContent = e.target.result;
 				svgContainer.innerHTML = svgContent;
 				svgElement = svgContainer.querySelector("svg");
-				svgWidth = svgElement.getAttribute("width") || 100;
-				svgHeight = svgElement.getAttribute("height") || 100;
-                updateDimensionsDiv(svgWidth, svgHeight);
+				if (svgElement.hasAttribute("width") && svgElement.hasAttribute("height")) {
+					svgWidth = svgElement.getAttribute("width");
+					svgHeight = svgElement.getAttribute("height");
+				} else {
+					const viewBox = svgElement.getAttribute("viewBox");
+					if (viewBox) {
+						const viewBoxValues = viewBox.split(" ");
+						svgWidth = viewBoxValues[2];
+						svgHeight = viewBoxValues[3];
+					}
+				}
+				updateDimensionsDiv(svgWidth, svgHeight);
+				dimensionsDiv.style.display = "block";
 				form.style.display = "block";
 			};
 			reader.readAsText(file);
@@ -75,10 +86,10 @@ document.addEventListener("DOMContentLoaded", () => {
 		img.src = url;
 	}
 
-    function updateDimensionsDiv(width, height) {
-        dimensionsDiv.textContent = `Current SVG dimensions: ${width} x ${height}`;
-    }
-    
+	function updateDimensionsDiv(width, height) {
+		dimensionsDiv.textContent = `Current SVG dimensions: ${width} x ${height}`;
+	}
+
 	function downloadPNG(dataUrl) {
 		const link = document.createElement("a");
 		link.href = dataUrl;
