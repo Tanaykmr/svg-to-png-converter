@@ -4,6 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>SVG Resizer and Converter</title>
+		<link rel="stylesheet" href="style.css">
 		<style>
 			body {
 				font-family: "Inter", sans-serif;
@@ -20,7 +21,7 @@
 				text-align: center;
 				font-size: 14px;
 				padding: 10px;
-				background-color: #f1f1f1;
+				background-color: rgba(176, 178, 184, 0.459);
 				width: 100%;
 			}
 			footer a {
@@ -35,7 +36,9 @@
 	</head>
 
 	<body>
-		<h1>Upload, Resize, and Convert SVG to PNG</h1>
+	
+		<h1 class="box">
+			Upload, Resize, and Convert SVG to PNG</h1>
 		<input id="svg-file-input" type="file" accept=".svg" />
 		<div id="currentDimensions" style="display: none"> </div>
 		<form id="resizeForm" style="display: none">
@@ -55,6 +58,7 @@
 		<div id="svgContainer">
 			<!-- SVG will be displayed here -->
 		</div>
+	
 
 		<footer
 			><b>made with ❤️ by <a href="https://github.com/tanaykmr" target="_blank">Tanay Kumar</a></b></footer
