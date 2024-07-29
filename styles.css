@@ -1,32 +1,56 @@
 body {
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 600;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
     font-style: normal;
-    font-variation-settings: "slnt" 0;
-    background-color: #f0f4f8; 
+    color: #D0ECFF;
+    background-color: #4CB7FF; 
+    background-image: url('./assets/Bg.png');
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden;
     margin: 0;
 }
 
 #header {
-    background-color: #0A1172; 
-    color: white;
-    padding: 20px;
+    background-color: #1A2B5B; 
+    padding: 10px 20px;
     text-align: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Jersey 20', sans-serif; 
+    font-size: 28px; 
+    color: #D0ECFF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#header h1 {
+    margin: 0; 
+    padding: 0; 
+    text-shadow: 2px 2px 1px rgba(76, 188, 255, 0.8); 
+}
+
+#logo {
+    height: 100px; 
+    width: auto; 
+    margin-right: 45px;
 }
 
 #infoBox {
-    background-color: #4561ac; 
+    background-color: #1A2B5B; 
     padding: 20px;
     text-align: center;
+    font-weight: bold;
+    font-size: large;
     margin: 20px auto 10px; 
     width: 80%;
     max-width: 600px;
-    color: white;
-    border-radius: 10px;
+    border-radius: 10px;    
+    text-shadow: 1px 1px 1px rgba(76, 188, 255, 0.8); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 #svgContainer {
@@ -42,6 +66,8 @@ body {
     align-items: center;
     border-radius: 10px;
     overflow: hidden; 
+    text-shadow: 1px 1px 1px rgba(76, 188, 255, 0.8); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 #uploadBox {
@@ -56,12 +82,22 @@ body {
     align-items: center;
     z-index: 2;
     background-color: rgba(255, 255, 255, 0.8);
+    color:#1A2B5B;
     border-radius: 10px;
 }
 
-#uploadBox p {
-    margin-top: 10px;
-    color: black;
+#uploadContainer {
+    background: #1A2B5B;
+    color: #D0ECFF;
+    border-radius: 8px ;
+    text-shadow: 1px 1px 1px rgba(76, 188, 255, 0.8); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;  
+    font-weight: bold;
 }
 
 #placeholderImage {
@@ -77,14 +113,18 @@ footer {
     text-align: center;
     font-size: 14px;
     padding: 10px;
-    background-color: #f1f1f1;
+    background-color: #1A2B5B;
     width: 100%;
     margin-top: auto;
-    border-top: 1px solid #ccc;
+    color: #4CB7FF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: inherit;
 }
 
 footer a {
-    color: #0A1172;
+    color:#D0ECFF;
     text-decoration: none;
 }
 
@@ -124,15 +164,28 @@ svg {
 #resizeForm button[type="submit"] {
     padding: 10px 20px;
     background-color: #529cf6; 
-    color: white;
     border: none;
     cursor: pointer;
     border-radius: 5px;
     text-align: center;
     font-size: 16px;
+    font-weight: bold;
 }
 
 #convertToPngBtn:hover,
 #resizeForm button[type="submit"]:hover {
     background-color: #2787e7; 
+}
+
+body::-webkit-scrollbar {
+    width: 10px; 
+}
+
+body::-webkit-scrollbar-track {
+    background: #529fd2
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #91cff8;
+    border-radius: 10px;
 }

@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	function updateDimensionsDiv(width, height) {
         const widthWithUnit = width.endsWith("px") ? width : `${width}px`;
         const heightWithUnit = height.endsWith("px") ? height : `${height}px`;
-        dimensionsDiv.textContent = `Current dimensions: ${widthWithUnit} X ${heightWithUnit}`;
+        dimensionsDiv.textContent = `CURRENT DIMENSIONS: ${widthWithUnit} X ${heightWithUnit}`;
 	}
 
 	function downloadPNG(dataUrl) {
