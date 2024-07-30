@@ -12,7 +12,45 @@ document.addEventListener("DOMContentLoaded", () => {
 	let svgHeight = 0;
 
 	fileInput.addEventListener("change", (event) => {
-		const file = event.target.files[0];
+		handleFileUpload(event.target.files[0]);
+	});
+
+	uploadBox.addEventListener("dragover", (event) => {
+		event.preventDefault();
+		uploadBox.classList.add("drag-over");
+	});
+
+	uploadBox.addEventListener("dragleave", () => {
+		uploadBox.classList.remove("drag-over");
+	});
+
+	uploadBox.addEventListener("drop", (event) => {
+		event.preventDefault();
+		uploadBox.classList.remove("drag-over");
+		const file = event.dataTransfer.files[0];
+		handleFileUpload(file);
+	});
+
+	form.addEventListener("submit", (event) => {
+		event.preventDefault();
+		convertToPngBtn.style.display = "block";
+
+		if (svgElement) {
+			const width = document.getElementById("width").value;
+			const height = document.getElementById("height").value;
+
+			resizeSVG(width, height);
+		}
+	});
+
+	convertToPngBtn.addEventListener("click", () => {
+		if (svgElement) {
+			convertSVGToPNG(svgElement);
+			alert("Thank you for using this site!")
+		}
+	});
+
+	function handleFileUpload(file) {
 		if (file && file.type === "image/svg+xml") {
 			const reader = new FileReader();
 			reader.onload = (e) => {
@@ -40,26 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		} else {
 			alert("Please upload a valid SVG file.");
 		}
-	});
-
-	form.addEventListener("submit", (event) => {
-		event.preventDefault();
-		convertToPngBtn.style.display = "block";
-
-		if (svgElement) {
-			const width = document.getElementById("width").value;
-			const height = document.getElementById("height").value;
-
-			resizeSVG(width, height);
-		}
-	});
-
-	convertToPngBtn.addEventListener("click", () => {
-		if (svgElement) {
-			convertSVGToPNG(svgElement);
-			alert("Thank you for using this site!")
-		}
-	});
+	}
 
 	function resizeSVG(width, height) {
 		svgElement.setAttribute("width", width);
@@ -93,9 +112,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	function updateDimensionsDiv(width, height) {
-        const widthWithUnit = width.endsWith("px") ? width : `${width}px`;
-        const heightWithUnit = height.endsWith("px") ? height : `${height}px`;
-        dimensionsDiv.textContent = `CURRENT DIMENSIONS: ${widthWithUnit} X ${heightWithUnit}`;
+		const widthWithUnit = width.endsWith("px") ? width : `${width}px`;
+		const heightWithUnit = height.endsWith("px") ? height : `${height}px`;
+		dimensionsDiv.textContent = `CURRENT DIMENSIONS: ${widthWithUnit} X ${heightWithUnit}`;
 	}
 
 	function downloadPNG(dataUrl) {
