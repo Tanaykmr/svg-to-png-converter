@@ -4,13 +4,53 @@ document.addEventListener("DOMContentLoaded", () => {
 	const convertToPngBtn = document.getElementById("convertToPngBtn");
 	const svgContainer = document.getElementById("svgContainer");
 	const dimensionsDiv = document.getElementById("currentDimensions");
+	const uploadBox = document.getElementById("uploadBox");
+    const placeholderImage = document.getElementById("placeholderImage");
 
 	let svgElement = null;
 	let svgWidth = 0;
 	let svgHeight = 0;
 
 	fileInput.addEventListener("change", (event) => {
-		const file = event.target.files[0];
+		handleFileUpload(event.target.files[0]);
+	});
+
+	uploadBox.addEventListener("dragover", (event) => {
+		event.preventDefault();
+		uploadBox.classList.add("drag-over");
+	});
+
+	uploadBox.addEventListener("dragleave", () => {
+		uploadBox.classList.remove("drag-over");
+	});
+
+	uploadBox.addEventListener("drop", (event) => {
+		event.preventDefault();
+		uploadBox.classList.remove("drag-over");
+		const file = event.dataTransfer.files[0];
+		handleFileUpload(file);
+	});
+
+	form.addEventListener("submit", (event) => {
+		event.preventDefault();
+		convertToPngBtn.style.display = "block";
+
+		if (svgElement) {
+			const width = document.getElementById("width").value;
+			const height = document.getElementById("height").value;
+
+			resizeSVG(width, height);
+		}
+	});
+
+	convertToPngBtn.addEventListener("click", () => {
+		if (svgElement) {
+			convertSVGToPNG(svgElement);
+			alert("Thank you for using this site!")
+		}
+	});
+
+	function handleFileUpload(file) {
 		if (file && file.type === "image/svg+xml") {
 			const reader = new FileReader();
 			reader.onload = (e) => {
@@ -31,36 +71,21 @@ document.addEventListener("DOMContentLoaded", () => {
 				updateDimensionsDiv(svgWidth, svgHeight);
 				dimensionsDiv.style.display = "block";
 				form.style.display = "block";
+				placeholderImage.style.display = "none";
+				uploadBox.style.display = "none";
 			};
 			reader.readAsText(file);
 		} else {
 			alert("Please upload a valid SVG file.");
 		}
-	});
-
-	form.addEventListener("submit", (event) => {
-		event.preventDefault();
-		convertToPngBtn.style.display = "block";
-
-		if (svgElement) {
-			const width = document.getElementById("width").value;
-			const height = document.getElementById("height").value;
-
-			resizeSVG(width, height);
-		}
-	});
-
-	convertToPngBtn.addEventListener("click", () => {
-		if (svgElement) {
-			convertSVGToPNG(svgElement);
-		}
-	});
+	}
 
 	function resizeSVG(width, height) {
 		svgElement.setAttribute("width", width);
 		svgElement.setAttribute("height", height);
 		svgWidth = width;
 		svgHeight = height;
+		updateDimensionsDiv(svgWidth, svgHeight)
 	}
 
 	function convertSVGToPNG(svgElement) {
@@ -87,7 +112,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	function updateDimensionsDiv(width, height) {
-		dimensionsDiv.textContent = `Current SVG dimensions: ${width} x ${height}`;
+		const widthWithUnit = width.endsWith("px") ? width : `${width}px`;
+		const heightWithUnit = height.endsWith("px") ? height : `${height}px`;
+		dimensionsDiv.textContent = `CURRENT DIMENSIONS: ${widthWithUnit} X ${heightWithUnit}`;
 	}
 
 	function downloadPNG(dataUrl) {
