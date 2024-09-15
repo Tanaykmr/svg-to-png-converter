@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Outfit", sans-serif;
+}
+body{
+    margin: 10px;
+    line-height: 1.6;
+    background-color: #07021f;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+body h1{
+  
+    color: aliceblue;
+    margin-bottom: 40px;
+    font-size: 5rem;
+    text-shadow:  2px 2px 4px rgba(65, 152, 245, 0.7), /* Larger shadow with greater blur */
+    -2px -2px 4px rgba(114, 126, 234, 0.7);
+}
+h1:hover{
+    color: rgb(165, 227, 227);
+    font-size: 5.01rem;
+
+}
+
+h3{
+    font-size: 3rem;
+    font-family: "Rowdies", sans-serif;
+    margin-bottom: 30px;
+
+}
+#svg{
+    color:burlywood;
+    font-family: "Rowdies", sans-serif;
+}
+#png{
+    color: rgb(191, 155, 228);
+    font-family: "Rowdies", sans-serif;
+}
+#svg-file-input{
+    border: 2.5px solid rgb(1, 1, 1);
+    padding: 7px; 
+    height: 40px;
+    background-color: #303143;
+    font-size: 1.05rem;
+    font-weight: bolder;
+    
+}
+#svg-file-input:hover{
+  border:3.5px solid hsl(0, 2%, 10%);
+}
+input {
+    margin: 20px 0;
+}
+#forminputs{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+#convertButton {
+    margin-top: 20px;
+}
+
+footer {
+    margin-top: 150px;
+    font-size: 2rem;
+    
+}
+footer b {
+    color: #f3d6b3;
+    font-family: "Rowdies", sans-serif;
+   }
+footer a {
+    color:  #f3d6b3;
+    text-decoration: none;
+    font-family: "Rowdies", sans-serif;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
